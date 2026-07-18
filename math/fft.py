@@ -1,6 +1,7 @@
 import cmath
 import numpy as np
 
+
 def fft(A):
     """
     Fungsi untuk kalkulasi Fast Fourier Transform
@@ -19,10 +20,10 @@ def fft(A):
     odd = fft(A[1::2])
     even = fft(A[::2])
     res = [0] * N
-    for i in range(N//2):
+    for i in range(N // 2):
         W = cmath.exp(-1j * 2 * cmath.pi * i / N)
         res[i] = even[i] + W * odd[i]
-        res[i + N//2] = even[i] - W * odd[i]
+        res[i + N // 2] = even[i] - W * odd[i]
     return np.array(res)
 
 
